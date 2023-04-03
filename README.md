@@ -43,16 +43,16 @@ bwa mem /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta /
 bwa mem /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta / /projects/b1180/reads/PA_phages/JG024_9_2_S116_R1_001.fastq.gz /
 /projects/b1180/reads/PA_phages/JG024_9_2_S116_R2_001.fastq.gz > /
 /projects/b1180/stefanie/PA_phages/bwa/JG024_9_2_aln.sam
-~~~
+```
 
 Process alignments using samtools
 
-~~~
+```
 samtools view -S -b DMS3_5_2_aln.sam > /projects/b1180/stefanie/PA_phages/bwa/DMS3_5_2_aln.bam
 samtools view -S -b DMS3_5_3_aln.sam > /projects/b1180/stefanie/PA_phages/bwa/DMS3_5_3_aln.bam
 samtools view -S -b DMS3_WTshort_aln.sam > /projects/b1180/stefanie/PA_phages/bwa/DMS3_WTshort_aln.bam
 samtools view -S -b JG024_9_1short_aln.sam > /projects/b1180/stefanie/PA_phages/bwa/JG024_9_1short_aln.bam
 samtools view -S -b JG024_9_2_aln.sam > /projects/b1180/stefanie/PA_phages/bwa/JG024_9_2_aln.bam
 
-~~~~
+```
 
