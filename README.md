@@ -2,7 +2,8 @@ Initiate interactive job on Quest
 
 srun --account=p31750 --partition=normal -N 1 -n 1 --mem=10G --time=04:00:00 --pty bash
 
-#FastQC and MultiQC 
+#FastQC and MultiQC  
+
 Check quality, confirm seqcenter already performed adapter trimming and quality control, no further QC necessary
 
 Location containing reads: /projects/b1180/reads/PA_phages
