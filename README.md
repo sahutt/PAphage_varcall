@@ -93,4 +93,24 @@ samtools mpileup -B -f /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta 
 #Search for high frequency variants using VarScan
 
 ```
+module load java
+
+java -jar VarScan.v2.4.6.jar mpileup2cns /projects/b1180/stefanie/PA_phages/bwa/DMS3_5_2.pileup /
+--output-vcf 1 --min-coverage 30 --min-reads2 20 --min-var-freq 0.8 --variants > / /projects/b1180/stefanie/PA_phages/varscan/DMS3_5_2_variants.vcf
+
+java -jar VarScan.v2.4.6.jar mpileup2cns /projects/b1180/stefanie/PA_phages/bwa/DMS3_5_3.pileup /
+--output-vcf 1 --min-coverage 30 --min-reads2 20 --min-var-freq 0.8 --variants > / /projects/b1180/stefanie/PA_phages/varscan/DMS3_5_3_variants.vcf
+
+java -jar VarScan.v2.4.6.jar mpileup2cns /projects/b1180/stefanie/PA_phages/bwa/DMS3_WTshort.pileup /
+--output-vcf 1 --min-coverage 30 --min-reads2 20 --min-var-freq 0.8 --variants > /
+/projects/b1180/stefanie/PA_phages/varscan/DMS3_WTshort_variants.vcf
+
+java -jar VarScan.v2.4.6.jar mpileup2cns /projects/b1180/stefanie/PA_phages/bwa/JG024_9_1short.pileup /
+--output-vcf 1 --min-coverage 30 --min-reads2 20 --min-var-freq 0.8 --variants > /
+/projects/b1180/stefanie/PA_phages/varscan/JG024_9_1short_variants.vcf
+
+java -jar VarScan.v2.4.6.jar mpileup2cns /projects/b1180/stefanie/PA_phages/bwa/JG024_9_2.pileup --output-vcf 1 --min-coverage 30 --min-reads2 20 --min-var-freq 0.8 --variants > /projects/b1180/stefanie/PA_phages/varscan/JG024_9_2_variants.vcf
+```
+
+
 
