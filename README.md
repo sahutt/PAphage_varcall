@@ -94,13 +94,13 @@ samtools mpileup -B -f /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta 
 # Search for high frequency variants using VarScan
 Location: /projects/b1180/software 
 
-mpileup2cns command searches for all SNPs and indels in pileup file
---output-vcf - this is a boolean and must be set to 1 as shown below, this is NOT for an outfile name
---min-coverage - read depth at position, default is 8
---min-reads2 - mminimum supporting reads to call a variant, default is 2
---min-var-freq - minimum variant allele frequency, default is 0.01
---min-freq-for-hom - minimum frequency to call a homozygote, default is 0.75
---variants - reports only SNPs and Indels in output (vcf was unreadable without this flag)
+mpileup2cns command searches for all SNPs and indels in pileup file  
+--output-vcf - this is a boolean and must be set to 1 as shown below, this is NOT for an outfile name  
+--min-coverage - read depth at position, default is 8  
+--min-reads2 - mminimum supporting reads to call a variant, default is 2  
+--min-var-freq - minimum variant allele frequency, default is 0.01  
+--min-freq-for-hom - minimum frequency to call a homozygote, default is 0.75  
+--variants - reports only SNPs and Indels in output (vcf was unreadable without this flag)  
 
 ```
 module load java
