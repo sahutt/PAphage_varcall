@@ -2,7 +2,7 @@ Initiate interactive job on Quest
 
 srun --account=p31750 --partition=normal -N 1 -n 1 --mem=10G --time=04:00:00 --pty bash
 
-FastQC and MultiQC
+#FastQC and MultiQC 
 Check quality, confirm seqcenter already performed adapter trimming and quality control, no further QC necessary
 
 Location containing reads: /projects/b1180/reads/PA_phages
@@ -21,7 +21,7 @@ multiqc *
 ```
 
 
-Proceed to mapping  using bwa-mem
+#Proceed to mapping  using bwa-mem
 note: do not use -p flag in bwa-mem unless paired ends are interleaved
 
 ```
@@ -89,7 +89,7 @@ samtools mpileup -B -f /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta 
 samtools mpileup -B -f /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta -o JG024_9_2.pileup JG024_9_2.sorted.bam
 ```
 
-Search for high frequency variants using VarScan
+#Search for high frequency variants using VarScan
 
 ```
 
