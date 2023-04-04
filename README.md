@@ -1,10 +1,11 @@
-Initiate interactive job on Quest
+# Initiate interactive job on Quest
 
 srun --account=p31750 --partition=normal -N 1 -n 1 --mem=10G --time=04:00:00 --pty bash
 
 # FastQC and MultiQC  
 
-Check quality, confirm seqcenter already performed adapter trimming and quality control, no further QC necessary
+Check quality, confirm seqcenter already performed adapter trimming and quality control
+no further QC necessary
 
 Location containing reads: /projects/b1180/reads/PA_phages
 ```
@@ -21,13 +22,11 @@ cd ../../stefanie/PA_phages/fastqc/
 multiqc *
 ```
 
-
-#Proceed to mapping  using bwa-mem
-note: do not use -p flag in bwa-mem unless paired ends are interleaved
+# Mapping  using bwa-mem  
+Note: do not use -p flag in bwa-mem unless paired ends are interleaved
 
 ```
 module load bwa
-module load samtools 
 
 cd /projects/b1180/stefanie/PA_phages/bwa/ 
 
@@ -50,7 +49,7 @@ bwa mem /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta / /projects/b11
 /projects/b1180/stefanie/PA_phages/bwa/JG024_9_2_aln.sam
 ```
 
-Process alignments using samtools
+# Process alignments using samtools
 Location: /projects/b1180/stefanie/PA_phages/bwa
 
 1. Convert .sam to .bam using samtools view
@@ -59,6 +58,8 @@ Location: /projects/b1180/stefanie/PA_phages/bwa
 -o output filename
 
 ```
+module load samtools 
+
 samtools view -b -o DMS3_5_2.aligned.bam DMS3_5_2_aln.sam
 samtools view -b -o DMS3_5_3.aligned.bam DMS3_5_3_aln.sam
 samtools view -b -o DMS3_WTshort.aligned.bam DMS3_WTshort_aln.sam
@@ -90,7 +91,16 @@ samtools mpileup -B -f /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta 
 samtools mpileup -B -f /projects/b1180/stefanie/PA_phages/JG024_ref/JG024.fasta -o JG024_9_2.pileup JG024_9_2.sorted.bam
 ```
 
-#Search for high frequency variants using VarScan
+# Search for high frequency variants using VarScan
+Location: /projects/b1180/software 
+
+mpileup2cns command searches for all SNPs and indels in pileup file
+--output-vcf - this is a boolean and must be set to 1 as shown below, this is NOT for an outfile name
+--min-coverage - read depth at position, default is 8
+--min-reads2 - mminimum supporting reads to call a variant, default is 2
+--min-var-freq - minimum variant allele frequency, default is 0.01
+--min-freq-for-hom - minimum frequency to call a homozygote, default is 0.75
+--variants - reports only SNPs and Indels in output (vcf was unreadable without this flag)
 
 ```
 module load java
